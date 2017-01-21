@@ -1,0 +1,89 @@
+
+<!-- 
+	Name: Shivanand Sonnad
+	Date: 01/10/2016
+	email address: shivanandssonnad@gmail.com
+	phone no.: +918483931563
+	-->
+
+<html>
+	<script src="angularjs/angular.min.js"></script>
+	<script src="myjs/app.js"></script>
+	<script src="bootstrap/jquery.js"></script>
+	<script src="bootstrap/bootstrap.js"></script>
+	<script src="angularjs/angular-ui-router.js"></script>
+	<link rel="stylesheet" href="bootstrap/bootstrap.css" />
+	<link rel="stylesheet" href="mycss/app.css" />
+	
+	<head>
+		<title>CTZ Code Hub - Search</title>
+	</head>
+	<body ng-app="myApp" >
+		
+		<!-----------------------------------  Website Header ----------------->
+		<div class="well col-lg-12 col-sm-12 logo-class"><img src='images/logo.jpg' width="80px" /><b class="myheading1">Code Cafe</b>-code hub with stats!</div>
+		
+		
+		<div class="well col-lg-12 col-sm-12" style="height:80%; "  ng-controller="myCtrl">
+			<div class="well col-lg-9 col-sm-9" >
+		
+		<!-----------------------------------  Global Search ---------------- ----------------->
+		
+				<input class="input-lg " type="search" placeholder="Search" ng-model="globalSearch" style="margin-bottom:20px"/>
+				
+		<!-----------------------------------  Reapeat for no of submission ----------------->
+				<div style="height:90%;overflow:auto">
+				<div class="well col-lg-12 col-sm-12" ng-repeat="item in items | filter:globalSearch | filter:{selected:true}" style="background-color:white;">
+		
+		<!-----------------------------------  project title of each submission ----------------->
+					
+					<div class="col-lg-7 col-sm-7"><h3><img ng-src='images/{{item.language}}.jpg' width="50px" style="padding-right:10px" /> {{item.title}}</h3></div>
+		
+		<!-----------------------------------  Compiler ststus and language used for coding ----------------->
+		
+					<div class="well col-lg-5 col-sm-5 mydiv1" >
+						<div class=" col-lg-8 col-sm-8 mystatus" ><b>{{item.compiler_status}}</b></div>
+						<div class=" col-lg-4 col-sm-4 mylanguage" ><b>{{item.language}}</b></div>
+					</div>
+		
+		<!-----------------------------------  Source code of each submission ----------------->
+		
+					<div class="col-lg-12 col-sm-12 well"  >
+						<pre class="col-lg-12 col-sm-12 mysourcecode" >{{item.source_code}}</pre>
+					</div>
+				</div>
+				</div>
+			</div>
+			
+		<!-----------------------------------  Right side of page ----------------->
+			
+			<div class="well col-lg-3 col-sm-3">
+				<center><h4 class="myheading2" >Filter By Status:</h4></center>
+				<div class="well">
+					
+		<!-----------------------------------  Filter by status ----------------->
+		
+					<div ng-repeat="item in checkbox_items">
+						<input type="checkbox" id="{{item.value}}" ng-model='item.included' ng-click="myfun()"/>
+						<label for='{{item.value}}' style="padding-left:5px">{{item.value}}</label>
+					</div>
+				</div>
+				
+		<!-----------------------------------  Statistical Analysis ----------------->
+		
+				<center><h4 class="myheading2" >Statistical Analysis:</h4></center>
+				
+				<div class="well">
+					<ul>
+						<li><label>Top Languages Used:</label>
+							</br> C: {{no.c}}
+							</br> C++: {{no.cpp}}
+							</br> Java: {{no.java}}
+							</br> Python: {{no.python}}</li>
+						<li><label>Total Submissions: {{total_submissions}}</label></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

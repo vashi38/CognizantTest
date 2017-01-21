@@ -1,0 +1,31 @@
+.logo-class{
+			padding-right:10px;
+		}
+		.myheading1{
+			color:green;
+			font-size:30px;
+		}
+		.mydiv1{
+			background-color:white; 
+			padding:15px; 
+			margin-top:10px;
+		}
+		.mystatus{
+			background-color:white; 
+			border-right: 2px solid black; 
+			padding: 5px; 
+			text-align: right;
+		}
+		.mylanguage{
+			background-color:white; 
+			padding: 5px;
+			text-align:left;
+		}
+		.mysourcecode{
+			background-color:white;  
+			max-height:50%; 
+			overflow:auto;
+		}
+		.myheading2{
+			color:blue;
+		}
